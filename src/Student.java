@@ -6,9 +6,9 @@ public class Student {
     private Date birthdate;
     private String nr;
     private int rokStudiow;
-    private int sredniaOcen;
+    private double sredniaOcen;
 
-    public Student(String name, String surname, Date birthdate, String nr, int rokStudiow, int sredniaOcen) {
+    public Student(String name, String surname, Date birthdate, String nr, int rokStudiow, double sredniaOcen) {
         this.name = name;
         this.surname = surname;
         this.birthdate = birthdate;
