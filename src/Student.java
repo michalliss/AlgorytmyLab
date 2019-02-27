@@ -17,6 +17,18 @@ public class Student {
         this.sredniaOcen = sredniaOcen;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", birthdate=" + birthdate +
+                ", nr='" + nr + '\'' +
+                ", rokStudiow=" + rokStudiow +
+                ", sredniaOcen=" + sredniaOcen +
+                '}';
+    }
+
     public void setName(String name) {
         this.name = name;
     }
