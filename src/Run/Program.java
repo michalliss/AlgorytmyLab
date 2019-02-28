@@ -22,7 +22,7 @@ public class Program {
         studentList.add(s3);
         studentList.add(s4);
 
-        studentList.insert(s4, 2);
+        studentList.insert(s4, 4);
 
         studentList.print();
 
