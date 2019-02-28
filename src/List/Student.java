@@ -1,3 +1,5 @@
+package List;
+
 import java.util.Date;
 
 public class Student {
@@ -19,7 +21,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "List.Student{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", birthdate=" + birthdate +
@@ -27,6 +29,34 @@ public class Student {
                 ", rokStudiow=" + rokStudiow +
                 ", sredniaOcen=" + sredniaOcen +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public Date getBirthdate() {
+        return birthdate;
+    }
+
+    public String getNr() {
+        return nr;
+    }
+
+    public int getRokStudiow() {
+        return rokStudiow;
+    }
+
+    public double getSredniaOcen() {
+        return sredniaOcen;
+    }
+
+    public void setSredniaOcen(double sredniaOcen) {
+        this.sredniaOcen = sredniaOcen;
     }
 
     public void setName(String name) {
