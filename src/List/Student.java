@@ -1,16 +1,17 @@
 package List;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Student {
     private String name;
     private String surname;
-    private Date birthdate;
+    private LocalDate birthdate;
     private String nr;
     private int rokStudiow;
     private double sredniaOcen;
 
-    public Student(String name, String surname, Date birthdate, String nr, int rokStudiow, double sredniaOcen) {
+    public Student(String name, String surname, LocalDate birthdate, String nr, int rokStudiow, double sredniaOcen) {
         this.name = name;
         this.surname = surname;
         this.birthdate = birthdate;
@@ -39,7 +40,7 @@ public class Student {
         return surname;
     }
 
-    public Date getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
@@ -67,7 +68,7 @@ public class Student {
         this.surname = surname;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
 

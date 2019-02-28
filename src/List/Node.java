@@ -5,6 +5,8 @@ public class Node<E> {
     private E data;
 
     public Node() {
+        this.data = null;
+        this.next = null;
 
     }
 

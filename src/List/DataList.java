@@ -11,14 +11,53 @@ public class DataList<E> implements Iterable<E> {
         size = 0;
     }
 
+    public void add() {
+        if (size == 0) {
+            this.first = new Node<>();
+            this.size = 1;
+        } else {
+            Node<E> n = new Node(null, null);
+            Node last = getNode(size - 1);
+            last.setNext(n);
+            this.size++;
+        }
+    }
+
     public void add(E data) {
         if (size == 0) {
             this.first = new Node<E>(data);
-            setSize(1);
+            this.size = 1;
         } else {
-            Node<E> n = new Node(first, data);
-            setSize(getSize() + 1);
-            this.first = n;
+            Node<E> n = new Node(null, data);
+            Node last = getNode(size - 1);
+            last.setNext(n);
+            this.size++;
+        }
+    }
+
+    public void insert(E data, int index) {
+        if (index <= size) {
+            Node n = this.first;
+            Node np = null;
+            if (index == 0) {
+                Node<E> ins = new Node(n, data);
+                this.first = ins;
+            } else {
+                for (int i = 0; i < index; i++) {
+                    np = n;
+                    n = n.getNext();
+                }
+                Node<E> ins = new Node<E>(n, data);
+                np.setNext(ins);
+            }
+            this.size++;
+        } else {
+            int oldSize = this.size;
+            for (int i = 0; i < index - oldSize; i++) {
+                this.add();
+            }
+            this.add(data);
+            this.size++;
         }
     }
 
@@ -29,12 +68,10 @@ public class DataList<E> implements Iterable<E> {
             if (n.getData().equals(data)) {
                 if (n == this.first) {
                     this.setFirst(n.getNext());
-                    setSize(getSize() - 1);
                 } else {
                     np.setNext(n.getNext());
-                    setSize(getSize() - 1);
                 }
-
+                size--;
             }
             np = n;
             n = n.getNext();
@@ -52,14 +89,27 @@ public class DataList<E> implements Iterable<E> {
         }
         return null;
     }
+
+    public Node getNode(int index) {
+        Node n = this.first;
+        for (int i = 0; i < index; i++) {
+            n = n.getNext();
+        }
+        return n;
+    }
     // TODO: 27/02/19 znajdowanie/usuwanie po numerze
 
     public void print() {
         Node n = first;
         while (n != null) {
             String a = new String();
-            a = n.getData().toString();
-            System.out.println(a);
+            if (n.getData() != null) {
+                a = n.getData().toString();
+                System.out.println(a);
+            } else {
+                System.out.println("-");
+            }
+
             n = n.getNext();
         }
     }

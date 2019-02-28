@@ -5,15 +5,16 @@ import List.FilteredIterator;
 import List.Student;
 import Predicate.FirstYearPredicate;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Program {
 
     public static void run() {
-        Student s1 = new Student("michal", "liss", new Date(1999, 5, 21), "246693", 1, 4.5);
-        Student s2 = new Student("tomasz", "kek", new Date(1998, 5, 21), "", 1, 4);
-        Student s3 = new Student("marcin", "zimny", new Date(1999, 2, 21), "", 4, 3);
-        Student s4 = new Student("dawidek", "dawidek", new Date(2000, 1, 27), "", 1, 3.5);
+        Student s1 = new Student("michal", "liss", LocalDate.of(1999, 12, 13), "246693", 1, 4.5);
+        Student s2 = new Student("tomasz", "kek", LocalDate.of(1997, 4, 2), "", 1, 4);
+        Student s3 = new Student("marcin", "zimny", LocalDate.of(1999, 5, 21), "", 4, 3);
+        Student s4 = new Student("dawidek", "dawidek", LocalDate.of(1988, 7, 3), "", 1, 3.5);
 
         DataList<Student> studentList = new DataList<Student>();
         studentList.add(s1);
@@ -21,12 +22,13 @@ public class Program {
         studentList.add(s3);
         studentList.add(s4);
 
-        studentList.print();
-
-        studentList.remove(s4);
+        studentList.insert(s4, 2);
 
         studentList.print();
 
+        //System.out.println(studentList.getNode(3).getData());
+
+        /*
         System.out.println(studentList.find(s2).getData().toString());
 
         for (Student n : studentList) {
@@ -38,6 +40,7 @@ public class Program {
         while (fiter.hasNext()) {
             System.out.println(fiter.next());
         }
+        */
 
     }
 }
