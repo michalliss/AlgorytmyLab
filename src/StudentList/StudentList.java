@@ -1,24 +1,23 @@
 package StudentList;
-
-import List.DataIterator;
-import List.Node;
 import List.Student;
 
-import java.util.Iterator;
+import java.io.*;
+import java.time.LocalDate;
+import java.util.*;
 
-public class StudentList implements Iterable {
+public class StudentList implements Iterable<Student> {
 
     private Node<Student> first;
     private int size;
 
     public StudentList() {
-        first = new Node<>();
+        first = new Node<Student>();
         size = 0;
     }
 
     public void add() {
         if (size == 0) {
-            this.first = new Node<>();
+            this.first = new Node<Student>();
             this.size = 1;
 
         } else {
@@ -31,7 +30,7 @@ public class StudentList implements Iterable {
 
     public void add(Student data) {
         if (size == 0) {
-            this.first = new Node<Student>(data);
+            this.first = new Node<>(data);
             this.size = 1;
         } else {
             Node<Student> n = new Node(null, data);
@@ -120,6 +119,33 @@ public class StudentList implements Iterable {
         }
     }
 
+    public void save() {
+        try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("studentList.txt"), "utf-8"))) {
+            for (Student n : this) {
+                writer.write(n.CSVtoString());
+                ((BufferedWriter) writer).newLine();
+            }
+        } catch (Exception e) {
+            System.out.println("błąd zapisu");
+        }
+    }
+
+    public static StudentList load() {
+        StudentList studentList = new StudentList();
+        try (Scanner reader = new Scanner(new File("studentList.txt"))) {
+            String line;
+            while (reader.hasNextLine()) {
+                line = reader.nextLine();
+                studentList.add(Student.parseStudent(line));
+            }
+        } catch (Exception e) {
+            System.out.println("błąd odczytu");
+        }
+        return studentList;
+    }
+
+
+
     public Node<Student> getFirst() {
         return first;
     }
@@ -137,46 +163,10 @@ public class StudentList implements Iterable {
     }
 
     @Override
-    public Iterator<Student> iterator() {
+    public Iterator iterator() {
         return new StudentIterator(this);
     }
 
 
-    /*
-    @Override
-    public Iterator<List.Node<E>> iterator() {
-        Iterator<List.Node<E>> it = new Iterator<List.Node<E>>() {
-
-            private List.Node<E> current = null;
-            int nextIndex = 0;
-
-            @Override
-            public boolean hasNext() {
-                return nextIndex < size;
-            }
-
-            @Override
-            public List.Node<E> next() {
-                if (current == null) {
-                    current = first;
-                }else{
-                    current = current.getNext();
-                }
-
-                nextIndex++;
-                return current;
-
-            }
-
-            @Override
-            public void remove() {
-                throw new UnsupportedOperationException();
-            }
-        };
-        return it;
-    }
-
-    */
 }
 
-}

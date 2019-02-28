@@ -1,6 +1,8 @@
 package List;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Student {
@@ -30,6 +32,23 @@ public class Student {
                 ", rokStudiow=" + rokStudiow +
                 ", sredniaOcen=" + sredniaOcen +
                 '}';
+    }
+
+    public String CSVtoString() {
+        return name + "," + surname + "," + birthdate + "," + nr + "," + rokStudiow + "," + sredniaOcen;
+    }
+
+    public static Student parseStudent(String s) {
+        String[] values = s.split(",");
+        String name = values[0];
+        String surname = values[1];
+        LocalDate birthdate = LocalDate.parse(values[2]);
+        String nr = values[3];
+        int rokStudiow = Integer.parseInt(values[4]);
+        double sredniaOcen = Double.parseDouble(values[5]);
+        Student student = new Student(name, surname, birthdate, nr, rokStudiow, sredniaOcen);
+        return student;
+
     }
 
     public String getName() {

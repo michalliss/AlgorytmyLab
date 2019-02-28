@@ -1,8 +1,11 @@
 package List;
 
-import java.util.Iterator;
+import StudentList.Node;
 
+import java.util.Iterator;
+/*
 public class DataIterator<E> implements Iterator<E> {
+
 
     private Node<E> current;
 
@@ -24,4 +27,7 @@ public class DataIterator<E> implements Iterator<E> {
         }
         return null;
     }
+
+
 }
+*/

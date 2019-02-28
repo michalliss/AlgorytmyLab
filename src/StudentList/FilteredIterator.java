@@ -1,4 +1,4 @@
-package List;
+package StudentList;
 
 import Predicate.Predicate;
 

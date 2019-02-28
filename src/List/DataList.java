@@ -1,8 +1,11 @@
 package List;
 
-import java.util.Iterator;
+import StudentList.Node;
 
-public class DataList<E> implements Iterable<E> {
+import java.util.Iterator;
+ /*
+//public class DataList<E> implements Iterable<E> {
+
     private Node<E> first;
     private int size;
 
@@ -136,12 +139,12 @@ public class DataList<E> implements Iterable<E> {
     }
 
 
-    /*
-    @Override
-    public Iterator<List.Node<E>> iterator() {
-        Iterator<List.Node<E>> it = new Iterator<List.Node<E>>() {
 
-            private List.Node<E> current = null;
+    @Override
+    public Iterator<StudentList.Node<E>> iterator() {
+        Iterator<StudentList.Node<E>> it = new Iterator<StudentList.Node<E>>() {
+
+            private StudentList.Node<E> current = null;
             int nextIndex = 0;
 
             @Override
@@ -150,7 +153,7 @@ public class DataList<E> implements Iterable<E> {
             }
 
             @Override
-            public List.Node<E> next() {
+            public StudentList.Node<E> next() {
                 if (current == null) {
                     current = first;
                 }else{
@@ -170,5 +173,6 @@ public class DataList<E> implements Iterable<E> {
         return it;
     }
 
-    */
+
 }
+  */

@@ -1,0 +1,4 @@
+michal,liss,1999-12-13,246693,1,4.5
+tomasz,kek,1997-04-02,,1,4.0
+marcin,zimny,1999-05-21,,4,3.0
+dawidek,dawidek,1988-07-03,,1,3.5

@@ -1,4 +1,4 @@
-package List;
+package StudentList;
 
 public class Node<E> {
     private Node next;
